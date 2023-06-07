@@ -21,6 +21,27 @@
                 <td>{{$project->description}}</td>
                 <td>{{$project->slug}}</td>
             </tr>
+            <td>
+                <button type="button" class="btn btn-outline-primary">
+                    <a href="{{route('admin.projects.show', $project->slug)}}">
+                        <i class="fa-sharp fa-solid fa-expand fa-fade"></i>
+                    </a>
+                </button>
+               
+                <button type="button" class="btn btn-outline-primary">
+                    <a href="{{route('admin.projects.edit', $project->slug)}}">
+                        <i class="fa-solid fa-pen-to-square fa-fade"></i>
+                    </a>
+                </button>
+                
+                <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->slug) }}"  method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn btn-outline-danger">
+                        <i class="fa-solid fa-trash fa-fade"></i>
+                    </button>
+                </form>
+            </td>
         @endforeach
     </tbody>
 </table>
