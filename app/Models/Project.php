@@ -19,4 +19,8 @@ class Project extends Model
     public function project() {
         return $this->belongsTo(Project::class);
     }
+
+    public function type() {
+        return $this->belongsTo(Type::class);
+    }
 }
