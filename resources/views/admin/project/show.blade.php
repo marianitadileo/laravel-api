@@ -2,6 +2,13 @@
 
 @section('content')
     <h1 class="text-center">{{ $project->title }}</h1>
+    <div>
+        @if ($project->type)
+            <span>Categoria: {{ $project->type->name }}</span>
+        @else
+            <span>Nessun tipo selezionato!</span>
+        @endif
+    </div>
     <div class="text-end">
         {{ $project->slug }}
     </div>

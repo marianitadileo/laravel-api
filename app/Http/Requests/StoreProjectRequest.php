@@ -25,7 +25,8 @@ class StoreProjectRequest extends FormRequest
     {
         return [
             'title' => 'required|max:100',
-            'description' => 'required|max:5000'
+            'description' => 'required|max:5000',
+            'type_id' => ['nullable', 'exists:types,id']
         ];
     }
     public function messages(){

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <h1>Crea un nuovo post!</h1>
@@ -24,14 +24,23 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="type">Seleziona il tipo</label>
+            <select class="form-select" aria-label="Default select example">
+                <option value=""></option>
+                @foreach ($types as $type)
+                    <option @selected(old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+                
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="description" class="form-label" >Descrizione</label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{old('description')}}"></textarea>
             @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-    
+        <button type="submit" class="btn btn-primary">Salva</button>
     </form>
-    <button type="submit" class="btn btn-primary">Salva</button>
 </div>
 @endsection
