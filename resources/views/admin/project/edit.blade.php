@@ -15,7 +15,7 @@
         </div>
         <div class="mb-3">
             <label for="type">Seleziona il tipo</label>
-            <select class="form-select" id="type" name="type" aria-label="Default select example">
+            <select class="form-select" id="type" name="type_id" aria-label="Default select example">
                 <option value=""></option>
                 @foreach ($types as $type)
                 <option @selected($type->id == old('type_id', $project->type?->id)) value="{{ $type->id }}">{{ $type->name }}</option>

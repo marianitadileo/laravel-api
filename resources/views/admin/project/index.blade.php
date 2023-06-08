@@ -22,7 +22,7 @@
             <tr>
                 <td>{{$project->id}}</th>
                 <td>{{$project->title}}</td>
-                <td>{{$project->type_id}}</td>
+                <td>{{$project->type?->name}}</td>
                 <td>{{$project->description}}</td>
                 <td>{{$project->slug}}</td>
            
@@ -42,7 +42,7 @@
                 <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project->slug) }}"  method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="button" class="btn btn-outline-danger">
+                    <button type="submit" class="btn btn-outline-danger">
                         <i class="fa-solid fa-trash fa-fade"></i>
                     </button>
                 </form>
