@@ -13,7 +13,8 @@ class Project extends Model
         'title',
         'description',
         'slug',
-        'type_id'
+        'type_id',
+        'technology'
     ];
 
     public function project() {
@@ -24,7 +25,7 @@ class Project extends Model
         return $this->belongsTo(Type::class);
     }
 
-    public function technology() {
+    public function technologies() {
         return $this->belongsToMany(Technology::class); 
     }
 }

@@ -13,6 +13,17 @@
         {{ $project->slug }}
     </div>
     <p class="mt-4">{{ $project->description }}</p>
+    <div class="mb-3">
+       
+        @forelse ($project->technologies as $technology)
+            @if ($technology->name !== null)
+                <p>{{ $technology->name }}</p>
+            @endif
+
+            @empty
+              <p>nessuna tecnologia selezionata</p>  
+        @endforelse
+    </div>
     <button type="button" class="btn btn-danger mb-2">
         <a class="text-decoration-none text-reset" href="{{ route('admin.projects.index', $project->slug) }}">
             TORNA ALLA LISTA

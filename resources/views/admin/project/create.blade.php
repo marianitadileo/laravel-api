@@ -34,6 +34,21 @@
             </select>
         </div>
         <div class="mb-3">
+            <label for="technology">Seleziona la tecnologia</label>
+            <select class="form-select" name="technology_id" id="technology"  aria-label="Default select example">
+                <option value=""></option>
+                @forelse ($project->technologies as $technology)
+                    @if ($technology->name !== null)
+                        <p>{{ $technology->name }}</p>
+                    @endif
+        
+                    @empty
+                    <p>nessuna tecnologia selezionata</p>  
+                @endforelse
+                
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="description" class="form-label" >Descrizione</label>
             <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" value="{{old('description')}}"></textarea>
             @error('description')
