@@ -27,6 +27,16 @@
             </select>
         </div>
         <div class="mb-3">
+            <label for="type">Seleziona il tipo</label>
+            <select class="form-select" id="type" name="type_id" aria-label="Default select example">
+                <option value=""></option>
+                @foreach ($technologies as $technology)
+                <option @selected($technology->id == old('technology_id')) value="{{ $technology->id }}">{{ $technology->name }}</option>
+                @endforeach
+                
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="description" class="form-label">Descrizione</label>
             <input type="text" class="form-control @error('description') is-invalid @enderror" value="{{old('description')}}" id="description" name="description" value="{{$project->description}}">
             @error('description')

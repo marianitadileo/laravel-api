@@ -37,14 +37,14 @@
             <label for="technology">Seleziona la tecnologia</label>
             <select class="form-select" name="technology_id" id="technology"  aria-label="Default select example">
                 <option value=""></option>
-                @forelse ($project->technologies as $technology)
-                    @if ($technology->name !== null)
+                @foreach ($technologies as $technology)
+                    {{-- @if ($technology->name !== null)
                         <p>{{ $technology->name }}</p>
-                    @endif
-        
-                    @empty
-                    <p>nessuna tecnologia selezionata</p>  
-                @endforelse
+                        @endif --}}
+                        <option value="{{ $technology->id }}">{{ $technology->name }}</option>
+    
+                    
+                @endforeach
                 
             </select>
         </div>

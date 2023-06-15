@@ -11,6 +11,7 @@
             <th scope="col">ID</th>
             <th scope="col">TITOLO</th>
             <th scope="col">TYPE</th>
+            <th scope="col">TECH</th>
             <th scope="col">DESCRIZIONE</th>
             <th scope="col">SLUG</th>
             <th scope="col">AZIONI</th>
@@ -23,6 +24,13 @@
                 <td>{{$project->id}}</th>
                 <td>{{$project->title}}</td>
                 <td>{{$project->type?->name}}</td>
+                <td>
+                    @forelse ($project->technologies as $tech)
+                        {{$tech->name}}
+                    @empty
+                        Nessuna tecnologia associata
+                    @endforelse
+                </td>
                 <td>{{$project->description}}</td>
                 <td>{{$project->slug}}</td>
            
